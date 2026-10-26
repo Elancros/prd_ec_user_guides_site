@@ -1,0 +1,221 @@
+/* Elancros brand on Material for MkDocs: ink #0b0d13, red #ff3131 (same as the Apps Store pages). */
+
+/* Fonts bundled in assets/fonts (Fontsource 5.2.8, latin; SIL Open Font License, see the LICENSE files). */
+@font-face { font-family: "Inter"; font-style: normal; font-weight: 300; font-display: swap;
+  src: url("../fonts/inter-latin-300-normal.woff2") format("woff2"); }
+@font-face { font-family: "Inter"; font-style: normal; font-weight: 400; font-display: swap;
+  src: url("../fonts/inter-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "Inter"; font-style: normal; font-weight: 700; font-display: swap;
+  src: url("../fonts/inter-latin-700-normal.woff2") format("woff2"); }
+@font-face { font-family: "Inter"; font-style: italic; font-weight: 400; font-display: swap;
+  src: url("../fonts/inter-latin-400-italic.woff2") format("woff2"); }
+@font-face { font-family: "Inter"; font-style: italic; font-weight: 700; font-display: swap;
+  src: url("../fonts/inter-latin-700-italic.woff2") format("woff2"); }
+@font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 400; font-display: swap;
+  src: url("../fonts/jetbrains-mono-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 700; font-display: swap;
+  src: url("../fonts/jetbrains-mono-latin-700-normal.woff2") format("woff2"); }
+
+:root {
+  --md-text-font: "Inter";
+  --md-code-font: "JetBrains Mono";
+  --ec-ink: #0b0d13;
+  --ec-red: #ff3131;
+  --ec-red-dark: #d81c23;
+}
+
+[data-md-color-primary="custom"] {
+  --md-primary-fg-color: var(--ec-ink);
+  --md-primary-fg-color--light: #2a2f3d;
+  --md-primary-fg-color--dark: #000000;
+  --md-primary-bg-color: #ffffff;
+  --md-primary-bg-color--light: #a7aebe;
+}
+
+[data-md-color-accent="custom"] {
+  --md-accent-fg-color: var(--ec-red);
+  --md-accent-fg-color--transparent: rgba(255, 49, 49, 0.1);
+}
+
+[data-md-color-scheme="default"] {
+  --md-typeset-a-color: var(--ec-red-dark);
+}
+
+[data-md-color-scheme="slate"] {
+  --md-default-bg-color: #11141c;
+  --md-typeset-a-color: #ff6b6b;
+}
+
+/* Colours of the FAQ boxes and the flowcharts, per scheme. */
+[data-md-color-scheme="default"] {
+  --ec-card-bg: #ffffff;
+  --ec-card-head-bg: #f6f7f9;
+  --ec-card-border: #e2e5eb;
+  --ec-mark: var(--ec-red-dark);
+  --md-mermaid-node-bg-color: #fff3f3;
+  --md-mermaid-node-fg-color: var(--ec-red-dark);
+  --md-mermaid-edge-color: #4a5163;
+  --md-mermaid-label-fg-color: #0b0d13;
+  --md-mermaid-label-bg-color: #ffffff;
+}
+
+[data-md-color-scheme="slate"] {
+  --ec-card-bg: #161a24;
+  --ec-card-head-bg: #1c2130;
+  --ec-card-border: #2e3446;
+  --ec-mark: #ff6b6b;
+  --md-mermaid-node-bg-color: #222838;
+  --md-mermaid-node-fg-color: #ff6b6b;
+  --md-mermaid-edge-color: #c3c9d6;
+  --md-mermaid-label-fg-color: #eef0f4;
+  --md-mermaid-label-bg-color: #11141c;
+}
+
+/* Titles keep full contrast in dark mode (Material dims them). */
+[data-md-color-scheme="slate"] .md-typeset h1 {
+  color: var(--md-typeset-color);
+}
+
+/* Flowcharts: Material draws them in a shadow root, so only the --md-mermaid-* colours above reach them; the
+   line widths are set in each diagram (classDef / linkStyle default). */
+.md-typeset .mermaid {
+  margin: 1.5em 0;
+}
+
+/* FAQ questions (??? question): calm cards with a brand mark, the same in light and dark mode. */
+.md-typeset details.question {
+  background-color: var(--ec-card-bg);
+  border: 1px solid var(--ec-card-border);
+  border-left: 4px solid var(--ec-mark);
+  border-radius: 8px;
+  box-shadow: none;
+  font-size: 0.8rem;
+}
+
+.md-typeset details.question > summary {
+  background-color: var(--ec-card-head-bg);
+  color: var(--md-default-fg-color);
+  font-weight: 600;
+  border-radius: 0 7px 7px 0;
+}
+
+.md-typeset details.question[open] > summary {
+  border-bottom: 1px solid var(--ec-card-border);
+  border-radius: 0 7px 0 0;
+}
+
+.md-typeset details.question > summary::before {
+  background-color: var(--ec-mark);
+}
+
+.md-typeset details.question > summary::after {
+  background-color: var(--md-default-fg-color--light);
+}
+
+.md-typeset details.question > summary:hover {
+  color: var(--ec-mark);
+}
+
+/* Callouts in dark mode: lighter tint so the title band is visible on the dark page. */
+[data-md-color-scheme="slate"] .md-typeset .next > .admonition-title,
+[data-md-color-scheme="slate"] .md-typeset .next > summary {
+  background-color: rgba(167, 174, 190, 0.12);
+}
+
+[data-md-color-scheme="slate"] .md-typeset img.screenshot {
+  border-color: #2e3446;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.45);
+}
+
+.md-header__button.md-logo img {
+  height: 1.6rem;
+  width: auto;
+}
+
+.md-typeset h1 {
+  font-weight: 700;
+}
+
+/* Screenshots: framed, never wider than the text. */
+.md-typeset img.screenshot {
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Numbered steps: "1. ..." lists inside a .steps block get round red counters. */
+.md-typeset .steps > ol {
+  counter-reset: ec-step;
+  list-style: none;
+  padding-left: 0;
+  margin-left: 0;
+}
+
+.md-typeset .steps > ol > li {
+  counter-increment: ec-step;
+  position: relative;
+  padding-left: 2.6em;
+  margin-left: 0;
+  margin-bottom: 1em;
+}
+
+.md-typeset .steps > ol > li::before {
+  content: counter(ec-step);
+  position: absolute;
+  left: 0;
+  top: -0.05em;
+  width: 1.8em;
+  height: 1.8em;
+  border-radius: 50%;
+  background: var(--ec-ink);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.85em;
+  line-height: 1.8em;
+  text-align: center;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .steps > ol > li::before {
+  background: var(--ec-red);
+}
+
+/* "What happens next" box: custom admonition type `next`. */
+.md-typeset .admonition.next,
+.md-typeset details.next {
+  border-color: var(--ec-ink);
+}
+
+.md-typeset .next > .admonition-title,
+.md-typeset .next > summary {
+  background-color: rgba(11, 13, 19, 0.06);
+}
+
+.md-typeset .next > .admonition-title::before,
+.md-typeset .next > summary::before {
+  background-color: var(--ec-ink);
+  -webkit-mask-image: var(--md-admonition-icon--next);
+  mask-image: var(--md-admonition-icon--next);
+}
+
+[data-md-color-scheme="slate"] .md-typeset .admonition.next,
+[data-md-color-scheme="slate"] .md-typeset details.next {
+  border-color: #a7aebe;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .next > .admonition-title::before,
+[data-md-color-scheme="slate"] .md-typeset .next > summary::before {
+  background-color: #a7aebe;
+}
+
+:root {
+  --md-admonition-icon--next: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>');
+}
+
+/* Home page cards. */
+.md-typeset .grid.cards > ul > li {
+  border-radius: 10px;
+}
+
+.md-typeset .grid.cards > ul > li:hover {
+  border-color: var(--ec-red);
+}
